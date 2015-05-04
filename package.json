@@ -3,7 +3,7 @@
   "description": "Watches the sun and emits events based on it",
   "author": "Pascal de Vink <pascal.de.vink@gmail.com>",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "sunwatcher.js",
   "dependencies": {
     "suncalc": "1.6.0"
@@ -14,8 +14,8 @@
   "scripts": {
     "test": "node_modules/.bin/buster-test"
   },
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/pascaldevink/node-sunwatcher.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pascaldevink/node-sunwatcher.git"
   }
 }
