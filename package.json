@@ -4,6 +4,7 @@
   "author": "Pascal de Vink <pascal.de.vink@gmail.com>",
   "license": "MIT",
   "version": "1.0.0",
+  "main": "sunwatcher.js",
   "dependencies": {
     "suncalc": "1.6.0"
   },
