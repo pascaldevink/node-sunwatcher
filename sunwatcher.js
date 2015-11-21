@@ -31,8 +31,9 @@ Sunwatcher.prototype.startSunWatch = function () {
     var sunPosition = getSunPosition(self._config.latitude, self._config.longitude);
 
     setInterval(function () {
-        sunPosition = getSunPosition();
-    }, 86400000); // Runs once a day
+        sunPosition = getSunPosition(self._config.latitude, self._config.longitude);
+    }, 3600000);
+    // Runs every hour so that no matter what time startSunWatch is called, times will always be right
 
     setInterval(function () {
         var now = new Date();
