@@ -46,6 +46,11 @@ Sunwatcher.prototype.startSunWatch = function () {
             self.emit("sunset", now, sunPosition.sunsetStart, sunPosition.sunset);
         }
 
+        var nauticalDuskTimeDiff = getDifferenceBetweenNowAndSunType('nauticalDusk', now, sunPosition)
+        if (nauticalDuskTimeDiff <= 0 && nauticalDuskTimeDiff >= -10000) {
+            self.emit("nauticalDusk", now, sunPosition.nauticalDusk, sunPosition.nauticalDusk);
+        }
+
     }, 2000); // Runs every 2 seconds
 };
 
