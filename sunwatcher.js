@@ -31,8 +31,9 @@ Sunwatcher.prototype.startSunWatch = function () {
     var sunPosition = getSunPosition(self._config.latitude, self._config.longitude);
 
     setInterval(function () {
-        sunPosition = getSunPosition();
-    }, 86400000); // Runs once a day
+        sunPosition = getSunPosition(self._config.latitude, self._config.longitude);
+    }, 3600000);
+    // Runs every hour so that no matter what time startSunWatch is called, times will always be right
 
     setInterval(function () {
         var now = new Date();
@@ -43,6 +44,11 @@ Sunwatcher.prototype.startSunWatch = function () {
 
         if (isSunBetween('sunsetStart', 'sunset', now, sunPosition)) {
             self.emit("sunset", now, sunPosition.sunsetStart, sunPosition.sunset);
+        }
+
+        var nauticalDuskTimeDiff = getDifferenceBetweenNowAndSunType('nauticalDusk', now, sunPosition)
+        if (nauticalDuskTimeDiff <= 0 && nauticalDuskTimeDiff >= -10000) {
+            self.emit("nauticalDusk", now, sunPosition.nauticalDusk, sunPosition.nauticalDusk);
         }
 
     }, 2000); // Runs every 2 seconds
